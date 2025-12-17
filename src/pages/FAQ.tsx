@@ -1,4 +1,5 @@
 import SEO from '../components/SEO';
+import AdBanner from '../components/AdBanner';
 
 export default function FAQ() {
     const faqs = [
@@ -45,6 +46,9 @@ export default function FAQ() {
                     </div>
                 ))}
             </div>
+
+            {/* Ad Banner */}
+            <AdBanner />
         </div>
     );
 }

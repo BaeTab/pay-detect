@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import SEO from '../components/SEO';
+import AdBanner from '../components/AdBanner';
 
 export default function Home() {
     const navigate = useNavigate();
@@ -67,6 +68,11 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+
+            {/* Ad Banner */}
+            <div className="container mx-auto px-4 max-w-4xl">
+                <AdBanner />
+            </div>
 
             {/* Content for SEO/AdSense */}
             <section className="py-16 bg-slate-50">

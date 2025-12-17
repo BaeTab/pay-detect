@@ -1,4 +1,5 @@
 import SEO from '../components/SEO';
+import AdBanner from '../components/AdBanner';
 
 export default function Guide() {
     return (
@@ -60,6 +61,9 @@ export default function Guide() {
                     </ol>
                 </section>
             </div>
+
+            {/* Ad Banner */}
+            <AdBanner />
         </div>
     );
 }
