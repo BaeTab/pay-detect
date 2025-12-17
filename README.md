@@ -47,7 +47,7 @@
 
 ```bash
 # 저장소 클론
-git clone https://github.com/yourusername/pay-detect.git
+git clone https://github.com/baetab/pay-detect.git
 
 # 디렉토리 이동
 cd pay-detect
