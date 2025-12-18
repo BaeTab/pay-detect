@@ -111,6 +111,13 @@ export default function InvestigationForm({ onCalculate, onLoading }: Props) {
                         >
                             2025 최저
                         </button>
+                        <button
+                            type="button"
+                            onClick={() => setRate('10320')}
+                            className="px-3 py-2 bg-amber-50 text-xs text-amber-700 border border-amber-200 rounded-md hover:bg-amber-100"
+                        >
+                            2026 최저
+                        </button>
                     </div>
                 </div>
 

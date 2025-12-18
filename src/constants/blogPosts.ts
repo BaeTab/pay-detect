@@ -11,6 +11,58 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
     {
+        id: "2026-minimum-wage-confirmed",
+        title: "2026년 최저임금 10,320원 확정! 내 월급은 얼마가 될까?",
+        excerpt: "2026년 최저임금이 10,320원으로 결정되었습니다. 2025년 대비 얼마나 올랐고, 주휴수당을 포함한 월급은 얼마인지 미리 계산해봅니다.",
+        date: "2025-12-20",
+        author: "주휴탐정",
+        category: "속보",
+        content: `
+      <h2 class="text-2xl font-bold mb-4">2026년 최저시급 10,320원 시대 개막</h2>
+      <p class="mb-4">2026년 적용될 최저임금이 시간당 <strong>10,320원</strong>으로 최종 결정되었습니다. 이는 2025년 최저임금인 10,030원보다 인상된 금액으로, 드디어 최저시급 만 원 시대를 넘어 굳히기에 들어갔습니다.</p>
+
+      <h3 class="text-xl font-semibold mb-3">2025년 vs 2026년 비교</h3>
+      <div class="overflow-x-auto mb-4">
+        <table class="w-full text-sm text-left text-slate-500 border border-slate-200 rounded-lg">
+            <thead class="text-xs text-slate-700 uppercase bg-slate-50">
+                <tr>
+                    <th class="px-4 py-3">구분</th>
+                    <th class="px-4 py-3">2025년</th>
+                    <th class="px-4 py-3">2026년</th>
+                    <th class="px-4 py-3">인상액</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="bg-white border-b">
+                    <td class="px-4 py-3 font-medium text-slate-900">시급</td>
+                    <td class="px-4 py-3">10,030원</td>
+                    <td class="px-4 py-3 font-bold text-detective-navy">10,320원</td>
+                    <td class="px-4 py-3 text-red-600">+290원</td>
+                </tr>
+                <tr class="bg-white">
+                    <td class="px-4 py-3 font-medium text-slate-900">월급 (209시간)</td>
+                    <td class="px-4 py-3">2,096,270원</td>
+                    <td class="px-4 py-3 font-bold text-detective-navy">2,156,880원</td>
+                    <td class="px-4 py-3 text-red-600">+60,610원</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+
+      <h3 class="text-xl font-semibold mb-3">내 주휴수당은 얼마?</h3>
+      <p class="mb-2">주 15시간 이상 근무 시 발생하는 주휴수당도 당연히 오릅니다.</p>
+      <ul class="list-disc list-inside mb-4 pl-2 space-y-1">
+        <li><strong>1주 만근 시 주휴수당 (8시간 기준):</strong> 8 x 10,320원 = <strong>82,560원</strong></li>
+        <li><strong>주휴수당 포함 시급:</strong> 약 12,384원</li>
+      </ul>
+
+      <h3 class="text-xl font-semibold mb-3">언제부터 적용되나요?</h3>
+      <p class="mb-4">2026년 1월 1일 근무분부터 바로 적용됩니다. 근로계약서를 2025년에 썼더라도, 해가 바뀌면 자동으로 인상된 최저임금이 적용되므로 다시 계약서를 쓰지 않아도 인상된 급여를 요구할 수 있습니다.</p>
+
+      <p class="font-medium text-detective-navy">미리 2026년 급여를 계산해보고 싶다면? 주휴탐정 계산기에서 '2026 최저' 버튼을 눌러보세요!</p>
+    `
+    },
+    {
         id: "2025-minimum-wage-holiday-pay",
         title: "2025년 최저임금 인상과 주휴수당 계산법 완벽 가이드",
         excerpt: "2025년 최저임금 인상에 따른 주휴수당 변화와 정확한 계산 방법을 알아봅니다. 내 월급은 얼마나 오를까요?",
