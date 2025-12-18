@@ -7,6 +7,8 @@ import Guide from './pages/Guide';
 import FAQ from './pages/FAQ';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
+import BlogList from './pages/BlogList';
+import BlogPost from './pages/BlogPost';
 
 import AnalyticsTracker from './components/AnalyticsTracker';
 
@@ -35,6 +37,7 @@ function App() {
           <nav className="hidden md:flex gap-6 text-sm font-medium">
             <Link to="/calculator" className="hover:text-detective-yellow transition-colors">수사 의뢰(계산기)</Link>
             <Link to="/guide" className="hover:text-detective-yellow transition-colors">수사 가이드</Link>
+            <Link to="/blog" className="hover:text-detective-yellow transition-colors">탐정 일지(블로그)</Link>
             <Link to="/faq" className="hover:text-detective-yellow transition-colors">FAQ</Link>
           </nav>
 
@@ -50,6 +53,7 @@ function App() {
             <div className="flex flex-col p-4 space-y-4">
               <Link to="/calculator" className="block hover:text-detective-yellow" onClick={closeMenu}>수사 의뢰(계산기)</Link>
               <Link to="/guide" className="block hover:text-detective-yellow" onClick={closeMenu}>수사 가이드</Link>
+              <Link to="/blog" className="block hover:text-detective-yellow" onClick={closeMenu}>탐정 일지(블로그)</Link>
               <Link to="/faq" className="block hover:text-detective-yellow" onClick={closeMenu}>FAQ</Link>
             </div>
           </nav>
@@ -62,6 +66,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/calculator" element={<CalculatorPage />} />
           <Route path="/guide" element={<Guide />} />
+          <Route path="/blog" element={<BlogList />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
