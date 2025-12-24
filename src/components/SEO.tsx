@@ -6,16 +6,21 @@ interface SEOProps {
     keywords?: string;
     image?: string;
     url?: string;
+    type?: 'website' | 'article';
+    jsonLd?: Record<string, any>[];
 }
 
 export default function SEO({
     title,
     description,
     keywords = "주휴수당, 주휴수당 계산기, 알바비 계산기, 3.3% 계산, 세금 환급, 급여 계산기",
-    image = "/og-image.png", // We'll need a placeholder or real OG image
-    url = "https://pay-detect.web.app"
+    image = "/og-image.png",
+    url = "https://pay-detect.web.app",
+    type = "website",
+    jsonLd
 }: SEOProps) {
     const fullTitle = `${title} | 주휴탐정`;
+    const canonicalUrl = url.split('?')[0]; // Remove query params for canonical
 
     return (
         <Helmet>
@@ -24,7 +29,7 @@ export default function SEO({
             <meta name="keywords" content={keywords} />
 
             {/* Open Graph / Facebook */}
-            <meta property="og:type" content="website" />
+            <meta property="og:type" content={type} />
             <meta property="og:url" content={url} />
             <meta property="og:title" content={fullTitle} />
             <meta property="og:description" content={description} />
@@ -37,11 +42,14 @@ export default function SEO({
             <meta property="twitter:description" content={description} />
             <meta property="twitter:image" content={image} />
 
-            {/* Naver / Search Engine Verification Placeholders */}
-            {/* <meta name="naver-site-verification" content="YOUR_NAVER_KEY" /> */}
-            {/* <meta name="google-site-verification" content="YOUR_GOOGLE_KEY" /> */}
+            {/* Structured Data (JSON-LD) */}
+            {jsonLd && (
+                <script type="application/ld+json">
+                    {JSON.stringify(jsonLd)}
+                </script>
+            )}
 
-            <link rel="canonical" href={url} />
+            <link rel="canonical" href={canonicalUrl} />
         </Helmet>
     );
 }

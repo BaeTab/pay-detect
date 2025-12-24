@@ -5,12 +5,29 @@ import AdBanner from '../components/AdBanner';
 export default function Home() {
     const navigate = useNavigate();
 
+    const websiteSchema = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "주휴탐정",
+        "url": "https://pay-detect.web.app"
+    };
+
+    const organizationSchema = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "주휴탐정",
+        "url": "https://pay-detect.web.app",
+        "logo": "https://pay-detect.web.app/detective_favicon.svg",
+        "description": "아르바이트, 프리랜서 주휴수당 계산 및 급여 정보 서비스"
+    };
+
     return (
         <div className="bg-white">
             <SEO
                 title="주휴탐정 - 사장님이 숨긴 내 돈 찾기"
                 description="알바, 프리랜서 주휴수당 계산기. 주 15시간 이상 근무 시 발생하는 주휴수당과 떼인 세금을 3초 만에 무료로 수사해드립니다."
                 url="https://pay-detect.web.app"
+                jsonLd={[websiteSchema, organizationSchema]}
             />
             {/* Hero Section */}
             <section className="relative overflow-hidden bg-detective-navy text-white py-20">

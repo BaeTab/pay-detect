@@ -1,8 +1,8 @@
 import { useParams, Link } from 'react-router-dom';
 import { blogPosts } from '../constants/blogPosts';
 import { Calendar, User, ArrowLeft, Tag } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
 import { useEffect } from 'react';
+import SEO from '../components/SEO';
 
 export default function BlogPost() {
     const { id } = useParams<{ id: string }>();
@@ -24,15 +24,71 @@ export default function BlogPost() {
         );
     }
 
+    const currentUrl = `https://pay-detect.web.app/blog/${post.id}`;
+
+    // Structured Data for Article
+    const articleSchema = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": post.title,
+        "description": post.excerpt,
+        "author": {
+            "@type": "Person",
+            "name": post.author || "주휴탐정"
+        },
+        "datePublished": post.date,
+        "dateModified": post.date,
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": currentUrl
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "주휴탐정",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://pay-detect.web.app/detective_favicon.svg"
+            }
+        },
+        "image": ["https://pay-detect.web.app/og-image.png"],
+        "articleSection": post.category
+    };
+
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "홈",
+                "item": "https://pay-detect.web.app"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "탐정 일지",
+                "item": "https://pay-detect.web.app/blog"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": post.title,
+                "item": currentUrl
+            }
+        ]
+    };
+
     return (
         <>
-            <Helmet>
-                <title>{post.title} | 주휴탐정 블로그</title>
-                <meta name="description" content={post.excerpt} />
-                <meta property="og:title" content={post.title} />
-                <meta property="og:description" content={post.excerpt} />
-                <meta name="author" content={post.author} />
-            </Helmet>
+            <SEO
+                title={post.title}
+                description={post.excerpt}
+                url={currentUrl}
+                type="article"
+                keywords={`${post.category}, ${post.title}, 주휴수당, 알바 꿀팁, 노동법`}
+                jsonLd={[articleSchema, breadcrumbSchema]}
+            />
 
             <div className="container mx-auto px-4 py-10 max-w-3xl">
                 <Link to="/blog" className="inline-flex items-center text-slate-500 hover:text-detective-navy mb-6 text-sm transition-colors">
@@ -67,7 +123,6 @@ export default function BlogPost() {
                     />
                 </article>
 
-                {/* Navigation to other posts could go here */}
                 <div className="mt-12 text-center">
                     <Link to="/calculator" className="inline-block bg-detective-navy text-white px-8 py-4 rounded-xl font-bold hover:bg-slate-700 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                         내 주휴수당 계산하러 가기
